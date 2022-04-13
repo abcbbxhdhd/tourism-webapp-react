@@ -67,6 +67,7 @@ $avatarColor: nth($colors, $key);
   cursor: pointer;
   letter-spacing: $space;
   margin-top: 20px;
+
   &:hover {
     background: $hovergreen;
   }
@@ -183,10 +184,14 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 400px;
+    width: 500px;
     justify-content: space-between;
     height: 100%;
     align-items: center;
+  }
+
+  .avatar-text {
+    display: none;
   }
 
   .menu > a {
@@ -205,97 +210,8 @@ body {
     }
   }
 
-  .menu-button-container {
-    display: none;
-    height: 100%;
-    width: 30px;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #menu-toggle {
-    display: none;
-  }
-
-  .menu-button,
-  .menu-button::before,
-  .menu-button::after {
-    display: block;
-    background-color: #fff;
-    position: absolute;
-    height: 4px;
-    width: 30px;
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    border-radius: 2px;
-  }
-
-  .menu-button::before {
-    content: '';
-    margin-top: -8px;
-  }
-
-  .menu-button::after {
-    content: '';
-    margin-top: 8px;
-  }
-
-  #menu-toggle:checked + .menu-button-container .menu-button::before {
-    margin-top: 0;
-    transform: rotate(405deg);
-  }
-
-  #menu-toggle:checked + .menu-button-container .menu-button {
-    background: rgba(255, 255, 255, 0);
-  }
-
-  #menu-toggle:checked + .menu-button-container .menu-button::after {
-    margin-top: 0;
-    transform: rotate(-405deg);
-  }
-
   @media (max-width: 700px) {
-    .menu-button-container {
-      display: flex;
-    }
-    .menu {
-      position: absolute;
-      top: 12vh;
-      left: 0;
-      flex-direction: column;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      height: auto;
-    }
-    #menu-toggle ~ .menu a {
-      display: none;
-      height: 0;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      transition: .2s linear;
-    }
-    #menu-toggle:checked ~ .menu a {
-      display: flex;
-      border: 1px solid #333;
-      height: 30px;
-      padding: 0.5em;
-      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
-    }
-    .menu > a {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0.5em 0;
-      width: 100%;
-      color: white;
-      background-color: #222;
-    }
-    .menu > a:not(:last-child) {
-      border-bottom: 1px solid #444;
-    }
+
   }
 }
 
@@ -330,8 +246,8 @@ body {
   padding: 20px 140px;
 }
 
-.content-container{
-  padding:0 100px 100px 100px;
+.content-container {
+  padding: 0 100px 100px 100px;
 }
 
 .back {
@@ -342,6 +258,7 @@ body {
 }
 
 .back-link {
+  width: 90px;
   font-weight: 500;
   font-size: 21px;
   line-height: 37px;
@@ -351,6 +268,7 @@ body {
   letter-spacing: 0.05em;
   color: #000000;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .arrow {
@@ -381,7 +299,7 @@ body {
 
 .location-image-container {
   width: 100%;
-  height: 70vh;
+  height: 40vh;
   @extend %center;
   overflow: hidden;
 }
@@ -392,7 +310,7 @@ body {
 }
 
 .location-text {
-  padding: 50px;
+  padding: 30px 50px;
   box-sizing: border-box;
 }
 
@@ -522,12 +440,13 @@ body {
   width: 15%;
   transition: .2s linear;
   cursor: pointer;
-  &:hover{
+
+  &:hover {
     background: $hovergreen;
   }
 }
 
-.comments{
+.comments {
   border-radius: 0 0 5px 5px;
   margin-bottom: 0;
 }

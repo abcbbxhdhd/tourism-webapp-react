@@ -1,14 +1,14 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 import Map from "../../components/Map";
 import CommentForm from "../../components/CommentForm";
+import {useNavigate} from "react-router-dom";
 
 const PostDetailPage: React.FC = () => {
-
+    const nav = useNavigate();
     return (
         <div className='page-container'>
             <div className='back'>
-                <NavLink className='back-link' to='/'>
+                <div className='back-link' onClick={() => (nav(-1))}>
                     <svg className='arrow' xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 30 24"
                          fill="none">
                         <path
@@ -16,7 +16,7 @@ const PostDetailPage: React.FC = () => {
                             fill="black"/>
                     </svg>
                     Back
-                </NavLink>
+                </div>
             </div>
             <div className="content-container">
                 <div className="gray-container">
